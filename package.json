@@ -1,0 +1,51 @@
+{
+  "name": "binvis",
+  "private": true,
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "testPathDirs": [
+      "./src/js"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "testutils.js"
+    ],
+    "testDirectoryName": "tests"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "bowser": "^1.7.1",
+    "chroma-js": "^1.3.4",
+    "classnames": "^2.2.5",
+    "crypto-browserify": "^3.11.1",
+    "cssmin": "^0.4.3",
+    "es5-shim": "^4.5.9",
+    "gulp": "^3.9.1",
+    "history": "^2.1.2",
+    "jquery": "^3.0.0-beta1",
+    "jquery.scrollto": "^2.1.2",
+    "lodash": "^4.17.4",
+    "react": "^0.14.9",
+    "react-addons-pure-render-mixin": "^0.14.8",
+    "react-bootstrap": "^0.28.5",
+    "react-document-title": "^2.0.3",
+    "react-dom": "^0.14.9",
+    "react-overlays": "^0.6.12",
+    "react-router": "^2.8.1",
+    "reflux": "^0.3.1",
+    "spark-md5": "^2.0.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^7.3.0",
+    "benchmark": "^2.1.4",
+    "browserify": "^13.3.0",
+    "eslint": "^2.13.1",
+    "eslint-plugin-react": "^3.16.1",
+    "jest-cli": "^0.8.2",
+    "less": "^2.7.2"
+  }
+}

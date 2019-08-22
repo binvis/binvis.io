@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+var _ = require('lodash');
+var packagejs = require('../package.json');
+var prefix = "";
+if (process.argv[2]) {
+    prefix = process.argv[2]
+}
+_.each(packagejs.dependencies, function(v, k){
+    process.stdout.write(prefix + k + " ")
+});

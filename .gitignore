@@ -1,0 +1,11 @@
+# Python object files
+*.py[cd]
+*.swp
+*.swo
+*_jsx.js
+.DS_Store
+node_modules
+build
+build_prod
+.cache
+.prodcache

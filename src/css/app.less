@@ -1,0 +1,680 @@
+
+@hexhover: #f0f3a9;
+@menu_hover: #0098b6;
+@menu_disabled: #b0b0b0;
+@menu: #424242;
+@monospace: monospace, monospace;
+@navspace: 40px;
+
+
+// Fixes the Chrome/Safari intertial scroll issue
+// http://stackoverflow.com/questions/8150191/disable-elastic-scrolling-in-safari
+html {
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+#binvisapp {
+	height: 100%;
+}
+
+#binvis-container {
+	height: 100%;
+}
+
+.bobble {
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: normal;
+    padding: 0px 4px;
+    margin-right: 2px;
+    background-color: #777;
+    color: #fff;
+    border-radius: 4px;
+    vertical-align: baseline;
+	cursor: pointer;
+    &.active {
+        background-color: #037cb9;
+    }
+}
+
+.modalpage {
+    .modal-dialog { width: 100%;
+        position: fixed;
+        height: 100%;
+        .content {
+            overflow-y: scroll;
+            overflow-x: hidden;
+            height: 100%;
+        }
+        .body {
+            padding: 15px;
+            padding-left: 30px;
+        }
+        .modal-content {
+            height: 100%;
+            overflow-y: hidden;
+            border-radius: 0;
+            box-shadow: none;
+        }
+        .modal-header {
+            .close {
+                float: left;
+            }
+            h4 {
+                padding-left: 3em;
+            }
+        }
+        .nav {
+            font-size: 16px;
+            a {
+                color: #303030;
+            }
+        }
+        .nav.inner {
+            margin-left: 2em;
+            font-weight: normal;
+        }
+        .nav.outer {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    }
+}
+
+.modal-backdrop.in {
+    opacity: 0;
+}
+
+.popup.modal {
+    .body {
+        padding: 15px;
+    }
+}
+
+.modalpage.large.modal {
+    .modal-dialog {
+        left: 60px;
+        top: 2px;
+    }
+    .modal-content {
+        margin-right: 60px;
+    }
+    .nav.outer {
+        position: fixed;
+    }
+    .modal-header {
+        display: none;
+    }
+}
+
+
+.modalpage.small.modal {
+    .modal-dialog {
+        left: 20px;
+        top: 20px;
+    }
+    .modal-content {
+        margin-right: 20px;
+    }
+    .row {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.changelog {
+    height: 500px;
+	h3 {
+		margin-top: 0px;
+		font-size: 16px;
+	}
+}
+
+.savefile {
+    button {
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }
+    .prompt {
+        height: 100%;
+    }
+    img {
+        width: 100%;
+    }
+}
+
+.colordemo {
+    span {
+        font-size: 12px;
+        display: inline-block;
+        text-align: center;
+        width: 2em;
+        line-height: 2em;
+        margin: 3px;
+    }
+}
+
+.help {
+    .center {
+        text-align: center;
+    }
+    .row.section {
+        padding-bottom: 100px;
+    }
+    h1 {
+        padding-bottom: 20px;
+        font-size: 26px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    section {
+        margin-bottom: 30px;
+    }
+}
+
+.yesselect {
+  -webkit-user-select: text;  /* Chrome all / Safari all */
+  -moz-user-select: text;     /* Firefox all */
+  -ms-user-select: text;      /* IE 10+ */
+  /* No support for these yet, use at own risk */
+  -o-user-select: text;
+  user-select: text;
+}
+
+.noselect {
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  /* No support for these yet, use at own risk */
+  -o-user-select: none;
+  user-select: none;
+}
+
+@-webkit-keyframes pulsate {
+    50% {opacity: 0.7;}
+}
+@keyframes pulsate {
+    50% {opacity: 0.7;}
+}
+.pulse {
+    -webkit-animation: pulsate 0.5s ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    animation: pulsate 0.5s ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.progressor {
+	.progress-bar {
+		transition: none;
+	}
+	text-align: center;
+	width: 100%;
+	.box {
+		margin-top: 20%;
+	}
+}
+
+.logo {
+    border: 1px solid #d0d0d0;
+}
+
+.landing {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100%;
+	padding-top: 5%;
+	padding-bottom: 5%;
+	text-align: center;
+	.banner {
+		color: #555;
+		h1 {
+            margin-top: 0px;
+			margin-bottom: 0px;
+		}
+	}
+	.pickbox {
+		#fileinput {
+			visibility: hidden;
+		}
+	}
+	.examples {
+        div {
+    		margin-top: 40px;
+        }
+	}
+    .contact {
+        margin-top: 50px;
+        a {
+            color: #303030;
+        }
+    }
+}
+
+.outer {
+	height: 100%;
+    .noselect;
+	.topmenu {
+        .btn-link {
+            text-decoration: none;
+        }
+        &.small {
+            .navbar-header:after {
+                clear: none;
+            }
+            .dropdown-toggle {
+                padding-top: 4px;
+            }
+            .navbar-brand {
+                margin-left: -5px;
+            }
+        }
+        /* Just above side-menu for small devices */
+		z-index: 1036;
+        font-size: 16px;
+        .nav a {
+            outline: none;
+        }
+        .nav a:hover {
+            color: #555555;
+            background-color: #eeeeee;
+		}
+		.hashtable {
+            .yesselect;
+			td {
+				padding-right: 4px;
+			}
+		}
+		.filename {
+			width: 100;
+            overflow: hidden;
+		}
+        .navbar-brand {
+            margin-left: -20px;
+            canvas {
+                margin-right: 5px;
+                float: left;
+            }
+        }
+	}
+	.content {
+		height: 100%;
+	}
+}
+
+.error {
+	padding-top: @navspace + 50;
+}
+
+.fileview.large {
+	display: flex;
+	display: -webkit-flex;
+	flex-flow: row;
+	-webkit-flex-flow: row;
+	height: 100%;
+	.menu {
+		flex: 0 0 30px;
+		-webkit-flex: 0 0 30px;
+	}
+	.image {
+		flex: 1;
+		-webkit-flex: 1;
+		height: 100%;
+        padding-bottom: 10px;
+		.scrollbox{
+			left: 10px;
+        }
+	}
+	.sidebar {
+		flex: 0 0 720px;
+		-webkit-flex: 0 0 720px;
+		padding-left: 20px;
+	}
+}
+
+
+.fileview.small{
+	display: flex;
+	display: -webkit-flex;
+	flex-flow: row;
+	-webkit-flex-flow: row;
+	height: 100%;
+	.menu {
+		flex: 0 0 30px;
+		-webkit-flex: 0 0 30px;
+        padding-right: 40px;
+	}
+	.image {
+		flex: 1;
+		-webkit-flex: 1;
+		height: 100%;
+	}
+	.sidebar {
+        display: none;
+	}
+}
+
+.fileview {
+	.menu {
+        /* Has to be just below the modal background overlay z-index to ensure
+        that it's de-activated when modals are up */
+		z-index: 1035;
+		color: @menu;
+		ul {
+			top: @navspace + 10;
+			left: 5px;
+			position: fixed;
+			list-style-type: none;
+			padding: 0px;
+			margin: 0px;
+			width: 30px;
+			font-size: 20px;
+			li {
+				&.disabled {
+					color: @menu_disabled;
+					:hover {
+						color: @menu_disabled;
+					}
+					:active {
+						color: @menu_disabled;
+					}
+					cursor: default;
+				}
+				cursor: pointer;
+				text-align: center;
+				padding: 0px;
+				margin-bottom: 15px;
+				i:hover {
+					color: @menu_hover;
+				}
+				i:active {
+					color: darken(@menu_hover, 20%);
+				}
+				.colorpopover {
+					font-size: 20px;
+					.keytable {
+						width: 100%;
+						td {
+							border: 1px solid #303030;
+							height: 10px;
+						}
+					}
+					color: @menu;
+					>tbody>tr:hover>td, >tbody>tr.active>td {
+						background: #e8e8e8;
+					}
+					>tbody>tr>td {
+						font-size: 0.8em;
+						border: 3px solid #ffffff;
+						padding: 10px;
+					}
+				}
+				.shapepopover {
+					font-size: 20px;
+					color: @menu;
+					>tbody>tr:hover>td, >tbody>tr.active>td {
+						background: #e8e8e8;
+					}
+					>tbody>tr>td {
+						font-size: 0.8em;
+						border: 3px solid #ffffff;
+						padding: 10px;
+					}
+				}
+			}
+		}
+	}
+	.image {
+		.scrollbox{
+			top: @navspace;
+			height: 100%;
+			padding-bottom: 20px;
+			overflow: scroll;
+			position: relative;
+            -webkit-overflow-scrolling: touch;
+		}
+		// We use a trick to resize the canvas dynamically, keeping the 1:4
+		// aspect ratio:
+		// http://stackoverflow.com/questions/12121090/responsively-change-div-size-keeping-aspect-ratio
+		.sizebox {
+			width: 100%;
+			display: inline-block;
+			position: relative;
+		}
+		.sizebox:after {
+			padding-top: 400%;
+			display: block;
+			content: '';
+		}
+		.layer {
+			position: absolute;
+			top: 0; bottom: 0; right: 0; left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.filecanvas {
+			.layer;
+			z-index: 1;
+		}
+		.cursorcanvas {
+			.layer;
+			z-index: 2;
+			@-webkit-keyframes cpulsate {
+			    0% {-webkit-transform: opacity: 1;}
+			    50% {opacity: 0.7;}
+			    100% {-webkit-transform: opacity: 1;}
+			}
+			@keyframes cpulsate {
+			    0% {transform: opacity: 1;}
+			    50% {opacity: 0.7;}
+			    100% {transform: opacity: 1;}
+			}
+
+            // FIXME: Disable cursor pulse for now, due to a
+            // recently-introduced Chrome opacity flicker bug. Once this is
+            // resolved we can re-add.
+			// opacity: 1;
+		    // -webkit-animation: cpulsate 0.5s ease-in-out;
+		    // -webkit-animation-iteration-count: infinite;
+		    // animation: cpulsate 0.5s ease-in-out;
+		    // animation-iteration-count: infinite;
+		}
+		.crawlercanvas {
+			.layer;
+			z-index: 3;
+			&.dimmed {
+				opacity: 0.8;
+			}
+		}
+	}
+	.sidebar {
+		.sidebar-inner{
+			position: fixed;
+			top: @navspace;
+			.content {
+				position: relative;
+			}
+		}
+	}
+}
+.infobox {
+	margin-top: 10px;
+	>table>tbody>tr>td {
+		vertical-align: top;
+		padding-right: 15px;
+	}
+	.heading {
+		font-weight: bold;
+	}
+	.infopane {
+		.form-group {
+			margin: 0px;
+		}
+		td {
+			padding-left: 5px;
+		}
+		.input-group {
+			width: 10em;
+		}
+		input {
+			padding: 3px;
+			height: inherit;
+		}
+	}
+}
+.legend {
+	.keytable {
+		width: 100%;
+		.keycolor {
+			border: 1px solid #303030;
+			padding-left: 10px;
+		}
+		.keyname {
+			font-family: @monospace;
+			padding-right: 0.5em;
+		}
+		tr {
+			border: 0px;
+		}
+		td {
+			padding: 0px;
+		}
+	}
+}
+
+.about {
+    .contact {
+        margin-top: 50px;
+        font-size: 20px;
+        font-weight: bold;
+        a {
+            color: #303030;
+        }
+        i {
+            background-color: #e1e1e1;
+            padding: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 10px;
+            width: 60px;
+        }
+    }
+}
+
+
+.hexview {
+	.spacertable {
+		// Beware - the redundant 100% height specs are needed for Firefox.
+		height: 100%;
+		border-collapse: collapse;
+		div {
+			position: relative;
+			display: inline;
+			.popover {
+				position: absolute;
+				top: 20px;
+				width: 110px;
+				left: -43px;
+				.arrow {
+					position: absolute;
+					display: block;
+				}
+				.popover-content {
+					padding: 0px;
+					display: block;
+					.popover-menu {
+						list-style: none;
+						padding: 0px;
+						margin: 0px;
+						li {
+							padding: 0px;
+							cursor: pointer;
+							a {
+								padding: 4px;
+								display: block;
+								clear: both;
+								font-weight: 400;
+								line-height: 1.42857143;
+								color: #333;
+								white-space: nowrap;
+								&:hover {
+									background-color: #f0f0f0;
+									text-decoration: none;
+
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		td {
+			margin: 0px;
+			padding: 0px;
+			height: 100%;
+		}
+		.textarea {
+			vertical-align: top;
+			height: 100%;
+			table {
+				margin-bottom: 0.3em;
+				font-family: @monospace;
+				white-space: pre;
+				border-collapse: collapse;
+				font-size: 14px;
+				td {
+					white-space: pre;
+					padding-right: 1em;
+				}
+				.offset {
+					color: #bd8d00;
+				}
+				.bytes span {
+					padding: 4px;
+					&.selected {
+						background-color: @hexhover;
+					}
+				}
+				.ascii span {
+					color: blue;
+					padding: 1px;
+					&.selected {
+						background-color: @hexhover;
+					}
+				}
+			}
+		}
+		.scrollbar {
+            display: relative;
+            padding-top: 1.7em;
+			width: 12px;
+			svg {
+				position: relative;
+                display: block;
+				// A trick to force hardware acceleration. Without this, I see
+				// weird redraw artifacts in Chrome. See:
+				// http://stackoverflow.com/questions/16338263/chrome-redraw-issue
+				-webkit-transform: translate3d(0, 0, 0);
+				height: 100%;
+				border-radius: 5px;
+				width: 12px;
+				.background {
+					fill: #e9e9e9;
+				}
+				.scrubber {
+					fill: #919191;
+				}
+			}
+
+		}
+	}
+}
+
+.curvedemo {
+	cursor: pointer;
+}
