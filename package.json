@@ -35,7 +35,8 @@
     "react-overlays": "^0.6.12",
     "react-router": "^2.8.1",
     "reflux": "^0.3.1",
-    "spark-md5": "^2.0.2"
+    "spark-md5": "^2.0.2",
+    "v8": "^0.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
