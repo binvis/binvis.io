@@ -22,7 +22,7 @@
     "crypto-browserify": "^3.11.1",
     "cssmin": "^0.4.3",
     "es5-shim": "^4.5.9",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "history": "^2.1.2",
     "jquery": "^3.0.0-beta1",
     "jquery.scrollto": "^2.1.2",
@@ -41,12 +41,12 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-preset-react": "^6.24.1",
-    "babelify": "^7.3.0",
+    "babelify": "^10.0.0",
     "benchmark": "^2.1.4",
-    "browserify": "^13.3.0",
-    "eslint": "^2.13.1",
-    "eslint-plugin-react": "^3.16.1",
+    "browserify": "^16.5.0",
+    "eslint": "^6.2.1",
+    "eslint-plugin-react": "^7.14.3",
     "jest-cli": "^0.8.2",
-    "less": "^2.7.2"
+    "less": "^3.10.2"
   }
 }
