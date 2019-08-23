@@ -65,7 +65,7 @@ function partial(data, winlen, emap, hist, start, progress, done){
 function entropy(data, winlen, progress, done){
     progress(0);
     var emap = new Float32Array(
-       new ArrayBuffer(data.length * Float32Array.BYTES_PER_ELEMENT)
+        new ArrayBuffer(data.length * Float32Array.BYTES_PER_ELEMENT)
     );
     var hist = new Uint8Array(new ArrayBuffer(256));
     winlen = Math.min(data.length, winlen);

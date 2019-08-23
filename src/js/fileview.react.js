@@ -102,7 +102,7 @@ module.exports = React.createClass({
             delete query.colors;
         }
         if (
-                this.state.view.view &&
+            this.state.view.view &&
                 this.state.view.view.len() != this.state.view.data.len()
         ){
             query.view = this.state.view.view.start + "-" + this.state.view.view.end;
@@ -201,9 +201,9 @@ module.exports = React.createClass({
         var cs = this.current_colorscheme();
         if (cs.prepare && !cs.prepared) {
             content = <components.ModalProgress
-                    progress={this.state.progress}
-                    message="Calculating entropy"
-                ></components.ModalProgress>;
+                progress={this.state.progress}
+                message="Calculating entropy"
+            ></components.ModalProgress>;
         } else {
             content = <div className="scrollbox">
                 <div className="sizebox">
@@ -230,61 +230,61 @@ module.exports = React.createClass({
         }
         var cls = "fileview " + this.state.media;
         return <div className={cls}>
-                <div className="menu">
-                    <Menu
-                        is_zoomed={viewstore.view_is_zoomed(this.state.view)}
-                        is_max_zoomed={viewstore.view_is_max_zoomed(this.state.view)}
-                        colorscheme={this.state.view.colorscheme}
-                        colorschemes={this.state.view.colorschemes}
-                        curvename={this.state.view.curvename}
+            <div className="menu">
+                <Menu
+                    is_zoomed={viewstore.view_is_zoomed(this.state.view)}
+                    is_max_zoomed={viewstore.view_is_max_zoomed(this.state.view)}
+                    colorscheme={this.state.view.colorscheme}
+                    colorschemes={this.state.view.colorschemes}
+                    curvename={this.state.view.curvename}
 
-                        snapshot={this.snapshot}
-                    ></Menu>
-                </div>
-                <div className="image">
-                    {content}
-                </div>
-                <div className="sidebar">
-                    <div className="sidebar-inner">
-                        <div className="header">
-                        </div>
-                        <div className="content">
-                            <HexView
-                                focus={this.state.view.focus}
-                                cursor={this.state.view.cursor}
-                                data_bytes={this.state.view.data_bytes}
-                                view={this.state.view.view}
-                                focus_block_len={this.state.view.focus_block_len}
-                                focus_blocks={this.state.view.focus_blocks}
-                                hexview_byte_menu={this.state.view.hexview_byte_menu}
-                                offset_decimal={this.state.view.offset_decimal}
-                            ></HexView>
-                        </div>
-                        <div className="infobox">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <Legend
-                                                scheme={this.current_colorscheme()}>
-                                            </Legend>
-                                        </td>
-                                        <td>
-                                            <InfoPane
-                                                view={this.state.view.view}
-                                                data={this.state.view.data}
-                                                data_bytes={this.state.view.data_bytes}
-                                                name={this.state.view.name}
-                                                save_file={this.context.save_file}
-                                            ></InfoPane>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    snapshot={this.snapshot}
+                ></Menu>
+            </div>
+            <div className="image">
+                {content}
+            </div>
+            <div className="sidebar">
+                <div className="sidebar-inner">
+                    <div className="header">
+                    </div>
+                    <div className="content">
+                        <HexView
+                            focus={this.state.view.focus}
+                            cursor={this.state.view.cursor}
+                            data_bytes={this.state.view.data_bytes}
+                            view={this.state.view.view}
+                            focus_block_len={this.state.view.focus_block_len}
+                            focus_blocks={this.state.view.focus_blocks}
+                            hexview_byte_menu={this.state.view.hexview_byte_menu}
+                            offset_decimal={this.state.view.offset_decimal}
+                        ></HexView>
+                    </div>
+                    <div className="infobox">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <Legend
+                                            scheme={this.current_colorscheme()}>
+                                        </Legend>
+                                    </td>
+                                    <td>
+                                        <InfoPane
+                                            view={this.state.view.view}
+                                            data={this.state.view.data}
+                                            data_bytes={this.state.view.data_bytes}
+                                            name={this.state.view.name}
+                                            save_file={this.context.save_file}
+                                        ></InfoPane>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </div>;
+            </div>
+        </div>;
     },
     render: function () {
         if (this.state.view.data){
@@ -303,9 +303,9 @@ module.exports = React.createClass({
             </div>;
         } else {
             return <ModalProgress
-                    progress={this.state.progress}
-                    message="Downloading binary"
-                ></ModalProgress>;
+                progress={this.state.progress}
+                message="Downloading binary"
+            ></ModalProgress>;
         }
     }
 });

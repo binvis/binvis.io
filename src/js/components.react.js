@@ -90,20 +90,20 @@ var FileSaver = React.createClass({
         var body;
         if (ref){
             body = <div className="row body">
-                    <div className="col-md-9 prompt">{prompt}</div>
-                    <div className="col-md-3">{ref}</div>
-                </div>;
+                <div className="col-md-9 prompt">{prompt}</div>
+                <div className="col-md-3">{ref}</div>
+            </div>;
         } else {
             body = <div className="row body">
-                    <div className="col-md-12 prompt">{prompt}</div>
-                </div>;
+                <div className="col-md-12 prompt">{prompt}</div>
+            </div>;
         }
         return  <ReactBootstrap.Modal
-                    show={true}
-                    title={this.props.title}
-                    className={klass}
-                    onHide={this.props.onHide}
-                > {body} </ReactBootstrap.Modal>;
+            show={true}
+            title={this.props.title}
+            className={klass}
+            onHide={this.props.onHide}
+        > {body} </ReactBootstrap.Modal>;
     }
 });
 
@@ -157,10 +157,10 @@ var ProgressBar = React.createClass({
             width: this.props.progress + "%"
         };
         return <div className="progress">
-          <div
-            style={bar}
-            className="progress-bar">
-          </div>
+            <div
+                style={bar}
+                className="progress-bar">
+            </div>
         </div>;
     }
 });

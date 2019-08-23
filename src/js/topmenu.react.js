@@ -59,53 +59,53 @@ module.exports = React.createClass({
         var file = null;
         if (this.state.name){
             file = <ReactBootstrap.ButtonToolbar className="pull-right">
-                    <ReactBootstrap.DropdownButton
-                        bsStyle="link"
-                        pullRight={true}
-                        key={"filedropdown-3"}
-                        title={
-                            <span className="filename">{this.state.name}</span>
-                        }
-                        id="filedropdown"
-                        className="pull-right"
-                    >
-                        <ReactBootstrap.MenuItem header={true}>
+                <ReactBootstrap.DropdownButton
+                    bsStyle="link"
+                    pullRight={true}
+                    key={"filedropdown-3"}
+                    title={
+                        <span className="filename">{this.state.name}</span>
+                    }
+                    id="filedropdown"
+                    className="pull-right"
+                >
+                    <ReactBootstrap.MenuItem header={true}>
                             Look up on...
-                        </ReactBootstrap.MenuItem>
-                        <ReactBootstrap.MenuItem
-                            onSelect={this.open_virustotal}>
+                    </ReactBootstrap.MenuItem>
+                    <ReactBootstrap.MenuItem
+                        onSelect={this.open_virustotal}>
                             VirusTotal
-                        </ReactBootstrap.MenuItem>
-                        <ReactBootstrap.MenuItem
-                            onSelect={this.open_metascan}>
+                    </ReactBootstrap.MenuItem>
+                    <ReactBootstrap.MenuItem
+                        onSelect={this.open_metascan}>
                             MetaScan
-                        </ReactBootstrap.MenuItem>
-                        <ReactBootstrap.MenuItem
-                            onSelect={this.open_google}>
+                    </ReactBootstrap.MenuItem>
+                    <ReactBootstrap.MenuItem
+                        onSelect={this.open_google}>
                             Google
-                        </ReactBootstrap.MenuItem>
-                        <ReactBootstrap.MenuItem divider/>
-                        <ReactBootstrap.MenuItem header={true}>
-                            <table
-                                className="hashtable">
-                                <tbody>
-                                    <tr>
-                                        <td><b>MD5:</b></td>
-                                        <td> {this.state.hashes.md5}</td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>SHA1:</b></td>
-                                        <td> {this.state.hashes.sha1}</td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>SHA256:</b></td>
-                                        <td>{this.state.hashes.sha256}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </ReactBootstrap.MenuItem>
-                    </ReactBootstrap.DropdownButton>
-                </ReactBootstrap.ButtonToolbar>;
+                    </ReactBootstrap.MenuItem>
+                    <ReactBootstrap.MenuItem divider/>
+                    <ReactBootstrap.MenuItem header={true}>
+                        <table
+                            className="hashtable">
+                            <tbody>
+                                <tr>
+                                    <td><b>MD5:</b></td>
+                                    <td> {this.state.hashes.md5}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>SHA1:</b></td>
+                                    <td> {this.state.hashes.sha1}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>SHA256:</b></td>
+                                    <td>{this.state.hashes.sha256}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </ReactBootstrap.MenuItem>
+                </ReactBootstrap.DropdownButton>
+            </ReactBootstrap.ButtonToolbar>;
         }
         return <div className="outer">
             <ReactBootstrap.Navbar
@@ -149,46 +149,46 @@ module.exports = React.createClass({
         var file = null;
         if (this.state.name){
             file = <ReactBootstrap.Nav className="pull-right">
-                    <ReactBootstrap.DropdownButton
+                <ReactBootstrap.DropdownButton
+                    key={3}
+                    title={
+                        <span className="filename">{this.state.name}</span>
+                    }
+                    id="filedropdown-small"
+                >
+                    <ReactBootstrap.MenuItem
+                        key={1}
+                        onSelect={this.props.set_modal.bind(null, "about")}
+                        className={this.isactive(active, "about")}
+                    >about</ReactBootstrap.MenuItem>
+                    <ReactBootstrap.MenuItem
+                        key={2}
+                        onSelect={this.props.set_modal.bind(null, "changelog")}
+                        className={this.isactive(active, "changelog")}
+                    >changelog</ReactBootstrap.MenuItem>
+                    <ReactBootstrap.MenuItem
                         key={3}
-                        title={
-                            <span className="filename">{this.state.name}</span>
-                        }
-                        id="filedropdown-small"
-                    >
-                        <ReactBootstrap.MenuItem
-                            key={1}
-                            onSelect={this.props.set_modal.bind(null, "about")}
-                            className={this.isactive(active, "about")}
-                        >about</ReactBootstrap.MenuItem>
-                        <ReactBootstrap.MenuItem
-                            key={2}
-                            onSelect={this.props.set_modal.bind(null, "changelog")}
-                            className={this.isactive(active, "changelog")}
-                        >changelog</ReactBootstrap.MenuItem>
-                        <ReactBootstrap.MenuItem
-                            key={3}
-                            onSelect={this.props.set_modal.bind(null, "help")}
-                            className={this.isactive(active, "help")}
-                        >help</ReactBootstrap.MenuItem>
-                        <ReactBootstrap.MenuItem divider/>
-                        <ReactBootstrap.MenuItem header={true}>
+                        onSelect={this.props.set_modal.bind(null, "help")}
+                        className={this.isactive(active, "help")}
+                    >help</ReactBootstrap.MenuItem>
+                    <ReactBootstrap.MenuItem divider/>
+                    <ReactBootstrap.MenuItem header={true}>
                             Look up on...
-                        </ReactBootstrap.MenuItem>
-                        <ReactBootstrap.MenuItem
-                            onSelect={this.open_virustotal}>
+                    </ReactBootstrap.MenuItem>
+                    <ReactBootstrap.MenuItem
+                        onSelect={this.open_virustotal}>
                             VirusTotal
-                        </ReactBootstrap.MenuItem>
-                        <ReactBootstrap.MenuItem
-                            onSelect={this.open_metascan}>
+                    </ReactBootstrap.MenuItem>
+                    <ReactBootstrap.MenuItem
+                        onSelect={this.open_metascan}>
                             MetaScan
-                        </ReactBootstrap.MenuItem>
-                        <ReactBootstrap.MenuItem
-                            onSelect={this.open_google}>
+                    </ReactBootstrap.MenuItem>
+                    <ReactBootstrap.MenuItem
+                        onSelect={this.open_google}>
                             Google
-                        </ReactBootstrap.MenuItem>
-                    </ReactBootstrap.DropdownButton>
-                </ReactBootstrap.Nav>;
+                    </ReactBootstrap.MenuItem>
+                </ReactBootstrap.DropdownButton>
+            </ReactBootstrap.Nav>;
         }
         return <div className="outer">
             <ReactBootstrap.Navbar

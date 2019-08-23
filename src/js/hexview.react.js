@@ -78,7 +78,7 @@ var HexRow = React.createClass({
             disp = utils.num(value, 16, 2);
         }
         if (
-                this.props.hexview_byte_menu &&
+            this.props.hexview_byte_menu &&
                 this.props.hexview_byte_menu.offset == offset &&
                 this.props.hexview_byte_menu.ascii == ascii
         ){
@@ -178,12 +178,12 @@ var HexView = React.createClass({
     },
     componentWillReceiveProps: function(nextprops){
         if (
-                this.props.hexview_byte_menu !== null &&
+            this.props.hexview_byte_menu !== null &&
                 (
                     !this.props.focus.within(this.props.hexview_byte_menu.offset) ||
                     this.props.cursor !== this.props.hexview_byte_menu.offset
                 )
-            ){
+        ){
             viewstore.actions.set_hexview_byte_menu(null);
         }
     },

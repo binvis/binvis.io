@@ -14,7 +14,7 @@ describe("view", function () {
         function _test(off, start, end){
             view.store.refocus(off);
             expect(view.store._data.focus).toEqual(
-                 new ds.Extent(start, end)
+                new ds.Extent(start, end)
             );
         }
 

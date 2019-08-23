@@ -103,9 +103,9 @@ module.exports = React.createClass({
     shouldComponentUpdate: function(nextProps, nextState){
         if (!_.isEqual(this.props, nextProps) || !_.isEqual(this.state, nextState)){
             if (
-                    !_.isEqual(this.props.view, nextProps.view) ||
+                !_.isEqual(this.props.view, nextProps.view) ||
                     !_.isEqual(this.props.curvename, nextProps.curvename)
-                ){
+            ){
                 this.last_creeper = new ds.Extent(0, 0);
             }
             return true;

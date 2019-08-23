@@ -141,7 +141,7 @@ var MenuItem = React.createClass({
         var container = this.getContainerDOMNode();
 
         var offset = container.tagName == "BODY" ?
-        domUtils.getOffset(node) : domUtils.getPosition(node, container);
+            domUtils.getOffset(node) : domUtils.getPosition(node, container);
 
         return merge(offset, {
             height: node.offsetHeight,
@@ -212,8 +212,8 @@ var MenuItem = React.createClass({
             </ReactBootstrap.OverlayTrigger>;
         }
         return <li className={disabled}>
-                    {icon}{popout}
-                </li>;
+            {icon}{popout}
+        </li>;
     }
 });
 

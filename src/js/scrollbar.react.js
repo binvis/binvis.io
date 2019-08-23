@@ -18,8 +18,8 @@ module.exports = React.createClass({
     },
     handle_onwheel: function(evt){
         var v = Math.floor(
-                this.props.focus.start + evt.deltaY
-            );
+            this.props.focus.start + evt.deltaY
+        );
         if (v > this.props.view.end - this.props.focus.length)
             v = this.props.view.end - this.props.focus.length;
         if (v < this.props.view.start)

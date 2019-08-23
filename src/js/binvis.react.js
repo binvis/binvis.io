@@ -76,31 +76,31 @@ var App = React.createClass({
             ></components.FileSaver>;
         } else if (p == "about"){
             return <ReactBootstrap.Modal
-                        show={true}
-                        title="about"
-                        animation={false}
-                        className={klass}
-                        onHide={this.set_modal.bind(this, null)}>
-                        <About/>
-                    </ReactBootstrap.Modal>;
+                show={true}
+                title="about"
+                animation={false}
+                className={klass}
+                onHide={this.set_modal.bind(this, null)}>
+                <About/>
+            </ReactBootstrap.Modal>;
         } else if (p == "changelog") {
             return <ReactBootstrap.Modal
-                        show={true}
-                        title="changelog"
-                        className={klass}
-                        animation={false}
-                        onHide={this.set_modal.bind(this, null)}>
-                        <ChangeLog/>
-                    </ReactBootstrap.Modal>;
+                show={true}
+                title="changelog"
+                className={klass}
+                animation={false}
+                onHide={this.set_modal.bind(this, null)}>
+                <ChangeLog/>
+            </ReactBootstrap.Modal>;
         } else if (p == "help") {
             return <ReactBootstrap.Modal
-                        show={true}
-                        title="help"
-                        className={klass}
-                        animation={false}
-                        onHide={this.set_modal.bind(this, null)}>
-                        <Help/>
-                    </ReactBootstrap.Modal>;
+                show={true}
+                title="help"
+                className={klass}
+                animation={false}
+                onHide={this.set_modal.bind(this, null)}>
+                <Help/>
+            </ReactBootstrap.Modal>;
         } else {
             return <span/>;
         }

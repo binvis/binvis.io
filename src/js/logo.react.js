@@ -97,9 +97,9 @@ module.exports = React.createClass({
     },
     render: function () {
         return <canvas
-                width={this.props.size}
-                height={this.props.size}
+            width={this.props.size}
+            height={this.props.size}
             onMouseMove={this.mouseMove}
-        className="logo"></canvas>;
+            className="logo"></canvas>;
     }
 });

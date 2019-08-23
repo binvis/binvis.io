@@ -3,8 +3,8 @@ var React = require("react");
 module.exports = React.createClass({
     render: function () {
         return <div className="changelog content">
-                <div className="row">
-                    <div className="col-md-6 body">
+            <div className="row">
+                <div className="col-md-6 body">
                     <h3> 13 February 2016 </h3>
                     <ul>
 
@@ -26,9 +26,9 @@ module.exports = React.createClass({
 
                         <li> Add a multi-hued colorscheme for byte magnitude,
                         with luminance calculated to increase linearly. Uses <a
-                        href="https://github.com/gka/chroma.js">chroma.js</a>
+                            href="https://github.com/gka/chroma.js">chroma.js</a>
                         and ideas from <a
-                        href="https://vis4.net/blog/posts/mastering-multi-hued-color-scales/">this
+                            href="https://vis4.net/blog/posts/mastering-multi-hued-color-scales/">this
                         excellent article.</a></li>
 
                     </ul>
