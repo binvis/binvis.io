@@ -14,6 +14,9 @@ var About = require("./about.react");
 var ChangeLog = require("./changelog.react");
 var components = require("./components.react");
 
+import '../css/app.less';
+import '../css/vendor.less';
+
 var App = React.createClass({
     contextTypes: {
         router: React.PropTypes.object
