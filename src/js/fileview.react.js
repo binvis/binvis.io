@@ -5,7 +5,10 @@ var $ = require("jquery");
 var _ = require("lodash");
 require("./canvas-toBlob");
 var DocumentTitle = require("react-document-title");
-/* polyfill */
+var createReactClass = require('create-react-class');
+var querystring = require("query-string");
+
+import PropTypes from 'prop-types';
 
 var settings = require("./settings");
 var ModalProgress = require("./components.react").ModalProgress;
@@ -14,7 +17,9 @@ var CrawlerView = require("./crawlerview.react");
 var CursorView = require("./cursorview.react");
 var HexView = require("./hexview.react");
 var InfoPane = require("./infopane.react");
-var Menu = require("./menu.react");
+
+import { Menu } from "./menu.react";
+
 var viewstore = require("./stores/view");
 var Legend = require("./legend.react");
 var components = require("./components.react");
@@ -22,15 +27,15 @@ var dt = require("./datastructures");
 var utils = require("./utils");
 
 
-module.exports = React.createClass({
+export default createReactClass({
     mixins: [
-        ReactRouter.Navigation,
+            // ReactRouter.Navigation,
         Reflux.listenTo(viewstore.store, "_onChange"),
         components.MediaMixin
     ],
     contextTypes: {
-        save_file: React.PropTypes.func,
-        router: React.PropTypes.object
+        save_file: PropTypes.func,
+        router: PropTypes.object
     },
     getInitialState: function() {
         return {
@@ -46,7 +51,7 @@ module.exports = React.createClass({
     load_file: function (file) {
         var self = this;
         var xhr = new XMLHttpRequest();
-        xhr.open("GET", this.props.params.splat, true);
+        xhr.open("GET", "/" + this.props.match.params[0], true);
         xhr.responseType = "arraybuffer";
         xhr.onprogress = function (e){
             self.setState(
@@ -58,8 +63,9 @@ module.exports = React.createClass({
         xhr.onload = function (e) {
             if (xhr.status == 200) {
                 var view = null;
-                if (self.props.location.query.view){
-                    var parts = self.props.location.query.view.split("-");
+                const qs = querystring.parse(self.props.location);
+                if (qs.view) {
+                    var parts = qs.view.split("-");
                     view = new dt.Extent(
                         parseInt(parts[0]),
                         parseInt(parts[1])
@@ -67,15 +73,15 @@ module.exports = React.createClass({
                 }
                 viewstore.actions.load(
                     false,
-                    self.props.params.splat,
+                    self.props.match.params[0],
                     new Uint8Array(
                         this.response,
                         0,
                         this.response.byteLength
                     ),
                     view,
-                    self.props.location.query.curve,
-                    self.props.location.query.colors
+                    qs.curve,
+                    qs.colors
                 );
             } else {
                 self.setState(
@@ -90,7 +96,7 @@ module.exports = React.createClass({
     update_route: function(){
         if (!this.state.view.data)
             return;
-        var query = _.clone(this.props.location.query);
+        const query = querystring.parse(this.props.location);
         if (this.state.view.curvename != settings.DefaultCurve){
             query.curve = this.state.view.curvename;
         } else {
@@ -110,10 +116,12 @@ module.exports = React.createClass({
             delete query.view;
         }
         // Route updates turn out to be expensive, so avoid if possible...
-        if (!_.isEqual(this.props.location.query, query)){
+        const q2 = querystring.parse(this.props.location);
+        if (!_.isEqual(q2, query)){
+            console.log("here", q2, query);
             var loc = this.props.location;
             loc.query = query;
-            this.context.router.replace(loc);
+            this.props.history.replace(loc);
         }
     },
     snapshot: function(){
@@ -167,7 +175,7 @@ module.exports = React.createClass({
         this.forceUpdate();
     },
     componentWillMount: function(){
-        var n = this.props.params.splat;
+        var n = this.props.match.params[0];
         if (n !== "local" && n !== this.state.view.name){
             viewstore.actions.clear();
             // FIXME: This is really funky, and seems like a race that will
@@ -178,7 +186,7 @@ module.exports = React.createClass({
         }
     },
     componentDidMount: function(){
-        var n = this.props.params.splat;
+        var n = this.props.match.params[0];
         if (this.state.view.data){
             this._prepColorscheme();
         } else if (n !== "local") {
@@ -200,12 +208,12 @@ module.exports = React.createClass({
     render_fileview: function () {
         var cs = this.current_colorscheme();
         if (cs.prepare && !cs.prepared) {
-            content = <components.ModalProgress
+            var content = <components.ModalProgress
                 progress={this.state.progress}
                 message="Calculating entropy"
             ></components.ModalProgress>;
         } else {
-            content = <div className="scrollbox">
+            var content = <div className="scrollbox">
                 <div className="sizebox">
                     <FileContentView
                         curvename={this.state.view.curvename}

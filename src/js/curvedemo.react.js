@@ -2,13 +2,17 @@ var ReactDOM = require("react-dom");
 var React = require("react");
 var $ = require("jquery");
 var _ = require("lodash");
+var createReactClass = require('create-react-class');
 
 var ds = require("./datastructures");
 var curves = require("./curves");
 
 var ticktime = 3500;
 
-module.exports = React.createClass({
+const PointStyle = "#303030";
+const LineStyle = "#0091ff";
+
+module.exports = createReactClass({
     margin: 6,
     demos: [2, 4, 8, 16],
     getInitialState: function(){

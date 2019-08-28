@@ -1,8 +1,9 @@
 
 var React = require("react");
 var _ = require("lodash");
+var createReactClass = require('create-react-class');
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     render: function() {
         var keyrows = [];
         _.each(this.props.scheme.key, function(x, off){

@@ -3,6 +3,7 @@ var React = require("react");
 var ReactBootstrap = require("react-bootstrap");
 var $ = require("jquery");
 var PureRenderMixin = require("react-addons-pure-render-mixin");
+var createReactClass = require('create-react-class');
 
 var viewstore = require("./stores/view");
 var utils = require("./utils");
@@ -20,7 +21,7 @@ function hexon(){
 }
 
 
-var ByteContextMenu = React.createClass({
+var ByteContextMenu = createReactClass({
     mixins: [
         components.DismissOnClick,
         PureRenderMixin
@@ -47,7 +48,7 @@ var ByteContextMenu = React.createClass({
 });
 
 
-var HexRow = React.createClass({
+var HexRow = createReactClass({
     mixins: [PureRenderMixin],
     handle_click_byte: function(offset, ascii){
         if (this.props.hexview_byte_menu)
@@ -156,7 +157,7 @@ var HexRow = React.createClass({
 });
 
 
-var HexView = React.createClass({
+var HexView = createReactClass({
     changeOptions: "change:focus change:cursor",
     mixins: [PureRenderMixin],
     onwheel: function(evt){

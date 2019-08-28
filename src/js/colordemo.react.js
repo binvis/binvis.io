@@ -1,5 +1,6 @@
 var React = require("react");
 var utils = require("./utils");
+var createReactClass = require('create-react-class');
 
 
 function getContrastYIQ(hexcolor){
@@ -10,7 +11,7 @@ function getContrastYIQ(hexcolor){
     return (yiq >= 128) ? "black" : "white";
 }
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     render: function() {
         var cells = [];
         for (var i = 0; i < 256; i++){

@@ -1,9 +1,11 @@
 var ReactDOM = require("react-dom");
 var React = require("react");
 var ReactBootstrap = require("react-bootstrap");
+import PropTypes from 'prop-types';
 var $ = require("jquery");
 var _ = require("lodash");
 var classNames = require("classnames");
+var createReactClass = require('create-react-class');
 
 var settings = require("./settings");
 var viewstore = require("./stores/view");
@@ -11,7 +13,7 @@ var components = require("./components.react");
 var CurveDemo = require("./curvedemo.react");
 
 
-var ColorPickerRow = React.createClass({
+var ColorPickerRow = createReactClass({
     pick: function(){
         viewstore.actions.set_colorscheme(this.props.scheme.name);
     },
@@ -43,7 +45,7 @@ var ColorPickerRow = React.createClass({
     }
 });
 
-var ColorPicker = React.createClass({
+var ColorPicker = createReactClass({
     mixins: [components.DismissOnClick],
     dismiss: function(){
         this.props.set_active_popout(null);
@@ -71,10 +73,8 @@ var ColorPicker = React.createClass({
 
 
 
-PointStyle = "#303030";
-LineStyle = "#0091ff";
 
-var CurvePickerRow = React.createClass({
+var CurvePickerRow = createReactClass({
     pick: function(){
         viewstore.actions.set_curve(this.props.curve.name);
     },
@@ -102,7 +102,7 @@ var CurvePickerRow = React.createClass({
 });
 
 
-var CurvePicker = React.createClass({
+var CurvePicker = createReactClass({
     mixins: [components.DismissOnClick],
     dismiss: function(){
         this.props.set_active_popout(null);
@@ -127,14 +127,14 @@ var CurvePicker = React.createClass({
 });
 
 
-var MenuItem = React.createClass({
+var MenuItem = createReactClass({
     propTypes: {
-        name: React.PropTypes.string,
-        icon: React.PropTypes.string,
-        active: React.PropTypes.bool,
-        tooltip: React.PropTypes.string,
-        click: React.PropTypes.func,
-        popout: React.PropTypes.element
+        name: PropTypes.string,
+        icon: PropTypes.string,
+        active: PropTypes.bool,
+        tooltip: PropTypes.string,
+        click: PropTypes.func,
+        popout: PropTypes.element
     },
     getPosition: function () {
         var node = ReactDOM.findDOMNode(this);
@@ -217,7 +217,7 @@ var MenuItem = React.createClass({
     }
 });
 
-module.exports = React.createClass({
+var Menu = createReactClass({
     shouldComponentUpdate: function(prev_props, prev_state){
         if (_.isEqual(prev_props, this.props) && _.isEqual(prev_state, this.state)){
             return false;
@@ -322,3 +322,5 @@ module.exports = React.createClass({
         </ul>;
     }
 });
+
+export { Menu };

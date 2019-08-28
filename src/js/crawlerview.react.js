@@ -8,6 +8,7 @@ var settings = require("./settings");
 var viewstore = require("./stores/view");
 var PolyDrawerMixin = require("./polydrawer.react");
 var classNames = require("classnames");
+var createReactClass = require('create-react-class');
 
 function evt_coords(evt, scale) {
     var coords = utils.mouse_coords(evt);
@@ -17,7 +18,7 @@ function evt_coords(evt, scale) {
     );
 }
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     mixins: [PolyDrawerMixin],
     drag_trigger: 5,
     getInitialState: function() {

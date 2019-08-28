@@ -1,14 +1,18 @@
 var ReactDOM = require("react-dom");
 var React = require("react");
-var ReactRouter = require("react-router");
+
+import { HashRouter as Router, Route } from "react-router-dom";
+
 var ReactBootstrap = require("react-bootstrap");
 var ReactOverlays = require("react-overlays");
 var $ = require("jquery");
 var History = require("history");
+var createReactClass = require('create-react-class');
+import PropTypes from 'prop-types';
 
-var TopMenu = require("./topmenu.react");
-var Landing = require("./landing.react");
-var FileView = require("./fileview.react");
+import TopMenu from "./topmenu.react.js";
+import Landing from "./landing.react.js";
+import FileView from "./fileview.react.js";
 var Help = require("./help.react");
 var About = require("./about.react");
 var ChangeLog = require("./changelog.react");
@@ -17,13 +21,13 @@ var components = require("./components.react");
 import '../css/app.less';
 import '../css/vendor.less';
 
-var App = React.createClass({
+var App = createReactClass({
     contextTypes: {
-        router: React.PropTypes.object
+        router: PropTypes.object
     },
     childContextTypes: {
-        save_file: React.PropTypes.func,
-        set_modal: React.PropTypes.func
+        save_file: PropTypes.func,
+        set_modal: PropTypes.func
     },
     getChildContext: function() {
         return {
@@ -32,9 +36,9 @@ var App = React.createClass({
         };
     },
     mixins: [
-        components.MediaMixin,
-        ReactRouter.Navigation,
-        ReactBootstrap.OverlayMixin
+        // components.MediaMixin,
+        // ReactRouter.Navigation,
+        // ReactBootstrap.OverlayMixin
     ],
     getInitialState: function(){
         return {
@@ -56,7 +60,7 @@ var App = React.createClass({
             q.modal = modal;
         else
             delete q.modal;
-        this.context.router.push(
+        this.context.router.history.push(
             {
                 pathname: this.props.location.pathname,
                 query: q
@@ -123,25 +127,22 @@ var App = React.createClass({
 
 
 $(function(){
-    const appHistory = ReactRouter.useRouterHistory(
-        History.createHashHistory
-    )({ queryKey: false });
     var routes = (
-        <ReactRouter.Route component={App}>
-            <ReactRouter.Route name="landing" path="/" component={Landing}/>
-            <ReactRouter.Route component={TopMenu}>
-                <ReactRouter.Route
+        <Route component={App}>
+            <Route exact name="landing" path="/" component={Landing}/>
+            <Route component={TopMenu}>
+                <Route
                     name="view"
                     path="/view/*"
                     {...this.props}
                     component={FileView}
-                ></ReactRouter.Route>
-            </ReactRouter.Route>
-            <ReactRouter.Route name="help" path="/help" component={Help}/>
-        </ReactRouter.Route>
+                ></Route>
+            </Route>
+            <Route name="help" path="/help" component={Help}/>
+        </Route>
     );
     ReactDOM.render(
-        <ReactRouter.Router history={appHistory}>{routes}</ReactRouter.Router>,
+        <Router>{routes}</Router>,
         document.getElementById("binvis-container")
     );
 });

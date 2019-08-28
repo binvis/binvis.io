@@ -4,14 +4,15 @@ var ReactRouter = require("react-router");
 var ReactBootstrap = require("react-bootstrap");
 var Reflux = require("reflux");
 var _ = require("lodash");
+var createReactClass = require('create-react-class');
 
 var Logo = require("./logo.react");
 var viewstore = require("./stores/view");
 var components = require("./components.react");
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     mixins: [
-        ReactRouter.Navigation,
+        // ReactRouter.Navigation,
         Reflux.listenTo(viewstore.store, "_onChange"),
         components.MediaMixin
     ],

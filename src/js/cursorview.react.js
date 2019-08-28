@@ -6,8 +6,9 @@ var ds = require("./datastructures");
 var settings = require("./settings");
 var curves = require("./curves");
 var PolyDrawerMixin = require("./polydrawer.react");
+var createReactClass = require('create-react-class');
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     mixins: [PolyDrawerMixin],
     draw: function(){
         var canvas = ReactDOM.findDOMNode(this);

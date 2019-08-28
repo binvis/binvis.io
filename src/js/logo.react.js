@@ -2,6 +2,7 @@ var ReactDOM = require("react-dom");
 var React = require("react");
 var _ = require("lodash");
 var scurve = require("./scurve");
+var createReactClass = require('create-react-class');
 
 var curveorder = 8;
 var ticktime = 3500;
@@ -24,7 +25,7 @@ function mod(x, m) {
     return (x%m + m)%m;
 }
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     getInitialState: function(){
         return {
             offset: 0

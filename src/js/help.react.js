@@ -4,11 +4,12 @@ var CurveDemo = require("./curvedemo.react");
 var ColorDemo = require("./colordemo.react");
 var colours = require("./colours");
 var classNames = require("classnames");
+var createReactClass = require('create-react-class');
 // Include to enable jQuery plugin
 var ScrollTo = require("jquery.scrollto"); // eslint-disable-line no-unused-vars
 
 
-SideMenu = React.createClass({
+SideMenu = createReactClass({
     scroll: function(name){
         $(".help.content").scrollTo(
             "." + name,
@@ -38,7 +39,7 @@ SideMenu = React.createClass({
 });
 
 
-Section = React.createClass({
+Section = createReactClass({
     render: function(){
         var klass = {
             "row": true,
@@ -58,7 +59,7 @@ Section = React.createClass({
 });
 
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     render: function () {
         return <div className="help content">
             <div className="row">

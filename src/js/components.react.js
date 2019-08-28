@@ -5,8 +5,9 @@ var filesaver = require("./FileSaver");
 var browser = require("bowser");
 var classNames = require("classnames");
 var PureRenderMixin = require("react-addons-pure-render-mixin");
+var createReactClass = require('create-react-class');
 
-var Bobble = React.createClass({
+var Bobble = createReactClass({
     mixins: [PureRenderMixin],
     render: function(){
         var cs = {
@@ -21,7 +22,7 @@ var Bobble = React.createClass({
     }
 });
 
-var FileSaver = React.createClass({
+var FileSaver = createReactClass({
     close: function(){
         this.props.onHide();
     },
@@ -151,7 +152,7 @@ var DismissOnClick = {
 };
 
 
-var ProgressBar = React.createClass({
+var ProgressBar = createReactClass({
     render: function(){
         bar = {
             width: this.props.progress + "%"
@@ -165,7 +166,7 @@ var ProgressBar = React.createClass({
     }
 });
 
-var ModalProgress = React.createClass({
+var ModalProgress = createReactClass({
     render: function(){
         return <div className="progressor">
             <div className="row">

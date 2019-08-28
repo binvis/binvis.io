@@ -2,19 +2,21 @@
 var React = require("react");
 var ReactRouter = require("react-router");
 var Reflux = require("reflux");
+var createReactClass = require('create-react-class');
+import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
 var viewstore = require("./stores/view");
 var Logo = require("./logo.react");
 
-
-module.exports = React.createClass({
+export default createReactClass({
     mixins: [
-        ReactRouter.Navigation,
-        ReactRouter.State,
+        // ReactRouter.Navigation,
+        // ReactRouter.State,
         Reflux.listenTo(viewstore.store, "_onChange")
     ],
     contextTypes: {
-        router: React.PropTypes.object
+        router: PropTypes.object
     },
     getInitialState: function() {
         var view = viewstore.store.get_data();
@@ -43,7 +45,7 @@ module.exports = React.createClass({
                     reader.result.byteLength
                 )
             );
-            self.context.router.push("/view/local");
+            self.context.router.history.push("/view/local");
         };
         reader.readAsArrayBuffer(file);
     },
@@ -74,22 +76,22 @@ module.exports = React.createClass({
             </div>
             <div className="row examples">
                 <div className="col-md-2 col-md-offset-3">
-                    <a href="#/view/examples/elf-Linux-ARMv7-ls.bin">
+                    <Link to="/view/examples/elf-Linux-ARMv7-ls.bin">
                         <div>ELF Linux ARM</div>
                         <img src="examples/elf-Linux-ARMv7-ls.thumb.jpg"></img>
-                    </a>
+                    </Link>
                 </div>
                 <div className="col-md-2">
-                    <a href="#/view/examples/tcpview.exe.bin">
+                    <Link to="#/view/examples/tcpview.exe.bin">
                         <div>MS Windows PE32</div>
                         <img src="examples/tcpview.exe.thumb.jpg"></img>
-                    </a>
+                    </Link>
                 </div>
                 <div className="col-md-2">
-                    <a href="#/view/examples/metricprops.pdf.bin">
+                    <Link to="#/view/examples/metricprops.pdf.bin">
                         <div>PDF</div>
                         <img src="examples/metricprops.pdf.thumb.jpg"></img>
-                    </a>
+                    </Link>
                 </div>
             </div>
 

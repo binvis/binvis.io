@@ -1,11 +1,12 @@
 var ReactDOM = require("react-dom");
 var React = require("react");
 var $ = require("jquery");
+var createReactClass = require('create-react-class');
 
 var MouseTail = require("./mousetail");
 var utils = require("./utils");
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     handle_mousedown: function(e){
         var coords = utils.mouse_coords(e);
         var rect = ReactDOM.findDOMNode(this).getBoundingClientRect();

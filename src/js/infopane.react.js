@@ -3,11 +3,12 @@ var React = require("react");
 var ReactBootstrap = require("react-bootstrap");
 var _ = require("lodash");
 var PureRenderMixin = require("react-addons-pure-render-mixin");
+var createReactClass = require('create-react-class');
 
 var viewstore = require("./stores/view");
 var utils = require("./utils");
 
-var OffsetInput = React.createClass({
+var OffsetInput = createReactClass({
     mixins: [PureRenderMixin],
     getInitialState: function() {
         return {value: this.props.value};
@@ -41,19 +42,19 @@ var OffsetInput = React.createClass({
         }
     },
     render: function(){
-        return <ReactBootstrap.Input
+        return <ReactBootstrap.Form.Control
             size="11"
             type="text"
             onKeyDown={this.keydown}
             onChange={this.change}
             onBlur={this.actuate}
             value={this.state.value}
-        ></ReactBootstrap.Input>;
+        ></ReactBootstrap.Form.Control>;
     }
 });
 
 
-var InfoPane = React.createClass({
+var InfoPane = createReactClass({
     mixins: [PureRenderMixin],
     change_start: function(value){
         viewstore.actions.set_focus_start(value);
@@ -103,7 +104,7 @@ var InfoPane = React.createClass({
                     </td>
                     <td>
                         <ReactBootstrap.Button
-                            bsSize="small"
+                            size="sm"
                             onClick={this.export}
                         >export</ReactBootstrap.Button>
                     </td>

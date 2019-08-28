@@ -4,9 +4,10 @@ var $ = require("jquery");
 var _ = require("lodash");
 var settings = require("./settings");
 var ds = require("./datastructures");
+var createReactClass = require('create-react-class');
 
 
-module.exports = React.createClass({
+module.exports = createReactClass({
     draw: function(){
         var canvas = ReactDOM.findDOMNode(this);
         var ctx = canvas.getContext("2d");
