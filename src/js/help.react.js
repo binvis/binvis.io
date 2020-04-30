@@ -182,7 +182,7 @@ module.exports = React.createClass({
                                 at the same time keeping colours for bytes that
                                 are close in value as similar as possible.</p>
 
-                            <p>To balance these two conflictinc constraints,
+                            <p>To balance these two conflicting constraints,
                                 we again resort to the Hilbert curve. This time,
                                 we project the 1-dimensional sequence of byte
                                 values in to a 3-dimensional Hilbert curve
@@ -203,7 +203,7 @@ module.exports = React.createClass({
                             }
                         >
 
-                            <p>The <b>entropy</b> coloscheme calculates
+                            <p>The <b>entropy</b> colorscheme calculates
                                     the Shannon entropy over window surrounding
                                     the byte in question.</p>
 
