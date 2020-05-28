@@ -1,6 +1,6 @@
 #!/bin/sh
 
-aws --profile personal s3 sync ./build_prod s3://binvis.io
-#aws --profile personal \
-#    cloudfront create-invalidation --distribution-id E3GQSFQ5WSKB1N \
-#    --paths "/*"
+./venv/bin/aws --profile personal s3 sync ./build-prod s3://binvis.io
+./venv/bin/aws --profile personal \
+    cloudfront create-invalidation --distribution-id E3GQSFQ5WSKB1N \
+    --paths "/*"
