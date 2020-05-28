@@ -1,4 +1,3 @@
-var SparkMD5 = require("spark-md5");
 var crypto = require("crypto-browserify");
 
 function savename(name, data, view){
@@ -66,12 +65,11 @@ function formatsize (bytes) {
 }
 
 function calculate_hashes(data){
+    var arr = new Uint8Array(data);
     return {
-        // FIXME: crypto MD5 gives an error at the moment. Remove SparkMD5 once that's
-        // fixed.
-        "md5": SparkMD5.ArrayBuffer.hash(data),
-        "sha1": crypto.createHash("sha1").update(data).digest("hex"),
-        "sha256": crypto.createHash("sha256").update(data).digest("hex")
+        "md5": crypto.createHash("md5").update(arr).digest("hex"),
+        "sha1": crypto.createHash("sha1").update(arr).digest("hex"),
+        "sha256": crypto.createHash("sha256").update(arr).digest("hex")
     };
 }
 

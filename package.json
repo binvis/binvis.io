@@ -6,14 +6,13 @@
     "build": "webpack --config webpack.prod.js"
   },
   "jest": {
-    "testPathDirs": [
+    "roots": [
       "./src/js"
     ],
     "testPathIgnorePatterns": [
       "/node_modules/",
       "testutils.js"
-    ],
-    "testDirectoryName": "tests"
+    ]
   },
   "dependencies": {
     "@babel/core": "^7.5.5",
@@ -44,7 +43,6 @@
     "react-overlays": "^0.6.12",
     "react-router": "^2.8.1",
     "reflux": "^0.3.1",
-    "spark-md5": "^3.0.0",
     "style-loader": "^1.0.0",
     "v8": "^0.1.0",
     "webpack": "^4.39.2",
@@ -56,7 +54,7 @@
     "benchmark": "^2.1.4",
     "eslint": "^6.2.1",
     "eslint-plugin-react": "^7.14.3",
-    "jest-cli": "^24.9.0",
+    "jest-cli": "^26.0.1",
     "less": "^3.10.2"
   }
 }
