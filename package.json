@@ -52,7 +52,6 @@
   },
   "devDependencies": {
     "benchmark": "^2.1.4",
-    "eslint": "^6.2.1",
     "eslint-plugin-react": "^7.14.3",
     "jest-cli": "^26.0.1",
     "less": "^3.10.2"
