@@ -3,14 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: "./src/js/binvis.react.js",
-    devServer: {
-        proxy: {
-            '/examples': {
-                target: 'http://localhost:8080',
-                pathRewrite: {'^/examples' : '/build/examples'}
-            }
-        },
-    },
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: "[name].[hash].js",
