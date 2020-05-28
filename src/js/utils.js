@@ -1,4 +1,5 @@
 var crypto = require("crypto-browserify");
+var hashes = require("jshashes");
 
 function savename(name, data, view){
     if (name.lastIndexOf("/") > -1){
@@ -65,11 +66,10 @@ function formatsize (bytes) {
 }
 
 function calculate_hashes(data){
-    var arr = new Uint8Array(data);
     return {
-        "md5": crypto.createHash("md5").update(arr).digest("hex"),
-        "sha1": crypto.createHash("sha1").update(arr).digest("hex"),
-        "sha256": crypto.createHash("sha256").update(arr).digest("hex")
+        "md5": new hashes.MD5().hex(data.buffer),
+        "sha1": new hashes.SHA1().hex(data.buffer),
+        "sha256": new hashes.SHA256().hex(data.buffer)
     };
 }
 
