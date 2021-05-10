@@ -34,7 +34,7 @@
     "jquery.scrollto": "^2.1.2",
     "jshashes": "^1.0.8",
     "less-loader": "^6.1.0",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.21",
     "react": "^0.14.9",
     "react-addons-pure-render-mixin": "^0.14.8",
     "react-bootstrap": "^0.28.5",
