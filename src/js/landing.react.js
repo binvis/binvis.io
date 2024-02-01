@@ -76,19 +76,19 @@ module.exports = React.createClass({
                 <div className="col-md-2 col-md-offset-3">
                     <a href="#/view/examples/elf-Linux-ARMv7-ls.bin">
                         <div>ELF Linux ARM</div>
-                        <img src="examples/elf-Linux-ARMv7-ls.thumb.jpg"></img>
+                        <img src="examples/elf-Linux-ARMv7-ls.png"></img>
                     </a>
                 </div>
                 <div className="col-md-2">
                     <a href="#/view/examples/tcpview.exe.bin">
                         <div>MS Windows PE32</div>
-                        <img src="examples/tcpview.exe.thumb.jpg"></img>
+                        <img src="examples/tcpview.exe.png"></img>
                     </a>
                 </div>
                 <div className="col-md-2">
                     <a href="#/view/examples/metricprops.pdf.bin">
                         <div>PDF</div>
-                        <img src="examples/metricprops.pdf.thumb.jpg"></img>
+                        <img src="examples/metricprops.pdf.png"></img>
                     </a>
                 </div>
             </div>
